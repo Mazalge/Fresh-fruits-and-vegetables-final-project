@@ -1,0 +1,152 @@
+
+.fa-circle{
+    font-size:24px;
+}
+.Policy-tag{
+   color: #5cb85c;
+}
+.modal-title-div{
+    text-align: center;
+}
+.modal-header-div{
+    background-color: #5cb85c;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 70px;
+}
+
+.btn-class{
+    padding-bottom: 20px;
+}
+.text-class{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.small_fruit {
+    display: block;
+    padding: 0 0 8px 0;
+    margin: 0;
+    border-bottom: solid 1px #d1cbbd;
+
+}
+li{
+    text-align: -webkit-match-parent;
+}
+
+.collapsePolicy{
+    border: 1px solid #C4C3CA;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.small_fruit .pcs1 {
+    display: inline-block;
+    padding: 17px 14px 0 0;
+    margin: 0;
+    font-size: 16px;
+    line-height: 16px;
+    color: #413c35;
+    font-weight: 400;
+    float: right;
+    direction: rtl;
+}
+img{
+    vertical-align: middle;
+    border: 0;
+}
+.small_fruit .sm_fruit1 {
+    display: inline-block;
+    float: right;
+    padding: 0;
+    margin: 5px 23px 0 0;
+}
+
+.small_fruit .haas {
+    display: inline-block;
+    padding: 15px 21px 0 0;
+    margin: 0;
+    font-size: 16px;
+    line-height: 16px;
+    color: #413c35;
+    font-weight: 400;
+    float: right;
+}
+
+.small_fruit .cut{
+    display: inline-block;
+    float: left;
+    padding: 0;
+    margin: 13px 0 0 18px;
+}
+
+.main_cont_rgt .bg2 {
+    padding: 5px 0 0px 0;
+    margin: 0 0 1px 0;
+}
+.clear {
+    clear: both;
+    font-size: 1px;
+    line-height: 1px;
+    display: block;
+    height: 0;
+}
+.bg1{
+    background: #f8f7f4;
+    padding: 0 0 5px 0;
+}
+.small_fruit .pcs1 {
+    display: inline-block;
+    padding: 17px 14px 0 0;
+    margin: 0;
+    font-family: maorregular;
+    font-size: 16px;
+    line-height: 16px;
+    color: #413c35;
+    font-weight: 400;
+    float: right;
+    direction: rtl;
+}
+
+.small_fruit .sma_icon1 {
+    color: #169a52;
+    display: inline-block;
+    padding: 0 0 0 0;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+
+
+
+
+
+
+.order-div{
+    height: 70%;
+    overflow: auto;
+}
+.total-price-div{
+    height: 20%;
+   
+}
+.do-order-div{
+    height: 20%;
+}
+.do-order1{
+    display: inline-block;
+    float: right;
+}
+.do-order2{
+    display: inline-block;
+    float: left;
+}
+.total-price1{
+    display: inline-block;
+    float: right;
+}
+.total-price2{
+    display: inline-block;
+    float: left;
+}
+
+

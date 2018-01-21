@@ -1,0 +1,61 @@
+.navbar {
+    background-color: #2d2d30;
+    border: 0;
+    font-size: 11px !important;
+    opacity: 0.9;
+}
+.navbar li a, .navbar .navbar-brand { 
+    color: black !important;
+    font-weight: bold;
+    font-size: 17px;
+    top: 230px;   
+}
+.facebookIcon{
+    font-size:25px; 
+    padding-top: 15px;
+    padding-right: 10px;
+   
+}
+.call{
+    color: black !important;
+    font-weight: bold;
+    font-size: 15px;
+    top: 160px; 
+}
+
+div {
+    display: block;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
+.footer-link{
+    color: white;
+    font-size: 17px;
+}
+
+.footer{
+   font-size: 22px;
+   text-align: center;
+   font-family: Comic Sans MS, Comic Sans, cursive;
+   margin-bottom: 0;
+   background-color: #2d2d30;
+   border: 0;
+   font-size: 11px !important;
+   letter-spacing: 4px;
+   opacity: 0.9;
+   height: 150px;
+}
+
+.logo-class{
+    height: 300px;
+    background: url(../assets/logoo.png) repeat-x center top;
+}
+
+/* .li-nav{
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+} */
+
+
+

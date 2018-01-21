@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="col-sm-9">
+        <h1>Edit product</h1>
+        <h3>Buy more, change price etc.</h3>
+
+        <form #trvForm2="ngForm" (ngSubmit)="editProduct(trvForm2)" *ngIf="showForm">
+
+            <div class="form-group">
+                <label for="idEditProName">Product name</label>
+                <input id="idEditProName" readonly name="productFromStorageToEdit.ProductName" type="text" class="form-control" [(ngModel)]="productToEdit.ProductName"
+                    #trvNewProName="ngModel">
+                <div class="error">{{proNameError}}</div>
+            </div>
+
+            <div class="form-group">
+                <label for="idMarketPrice">Market price</label>
+                <input id="idMarketPrice" name="productToEdit.MarketPrice" type="number" class="form-control" required min="0" [(ngModel)]="productToEdit.MarketPrice"
+                    #trvmarketPrice="ngModel">
+                <div *ngIf="trvmarketPrice.errors && (trvmarketPrice.dirty || trvmarketPrice.touched)" class="alert alert-danger">
+                    <div [hidden]="!trvmarketPrice.errors.required">Market price is required</div>
+                </div>
+                <div class="error"> {{marketPriceError}} </div>
+            </div>
+
+            <div class="form-group">
+                <label for="idCustomerPrice">Customer price</label>
+                <input id="idCustomerPrice" name="productToEdit.CustomerPrice" type="number" class="form-control" required min="0" [(ngModel)]="productToEdit.CustomerPrice"
+                    #trvcustomerPrice="ngModel">
+                <div *ngIf="trvcustomerPrice.errors && (trvcustomerPrice.dirty || trvcustomerPrice.touched)" class="alert alert-danger">
+                    <div [hidden]="!trvcustomerPrice.errors.required">Customer price is required</div>
+                </div>
+                <div class="error"> {{customerPriceError}} </div>
+            </div>
+
+            <div class="form-group">
+                <label for="idEditProName">Add the amount (in addition to the existing amount in stock)</label>
+                <br>
+                <a class="glyphicon glyphicon-minus" (click)="subAmount()"></a>
+                <input style="width: 30px; color:black;" type="number" [value]="amountInput" min="0" [(ngModel)]="amountInput" name="amountInput"
+                />
+                <a class="glyphicon glyphicon-plus" (click)="AddAmount()"></a>
+                <div class="error">{{addAmountError}}</div>
+            </div>
+            <div class="error">{{ editGeneralError }} </div>
+            <div style="color:green">{{ successMessage }} </div>
+            <br>
+            <button class="btn btn-success" [disabled]="!trvForm.valid">Edit Product</button>
+        </form>
+        <div *ngIf="showDetails">
+            Details:
+            <ul>
+                <li> Product name - {{ productFromStorageToEdit.ProductName }} </li>
+                <li> Market price - ₪ {{ productToEdit.MarketPrice }} </li>
+                <li> Customer price - ₪ {{ productToEdit.CustomerPrice }} </li>
+                <li> The amount added to the repository is - {{ amountInput }} </li>
+                <li> Total price - ₪ {{ totalPrice }} </li>
+            </ul>
+            <button class="btn btn-success" (click)="backToStorage()">Ok</button>
+        </div>
+    </div>
+</div>

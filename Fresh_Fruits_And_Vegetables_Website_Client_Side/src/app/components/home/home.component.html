@@ -1,0 +1,42 @@
+<div style="cursor:pointer" class="container" *ngFor="let product of DataService.arMyProducs">
+    <div class="img-div img-div-2">
+        <img class="productIMG" [src]="product.ImgPath" width="261" height="176" alt="product">
+    </div>
+
+    <div class="div-price">
+        <h4 class="ProductName">{{product.ProductName}}</h4>
+        <p class="p-price">
+            <span class="num">{{product.CustomerPrice}}
+                                </span>
+            <span class="shsh">₪</span>
+        </p>
+        <div class="clear"></div>
+    </div>
+
+    <div class="ammount_blok">
+        <div class="ammount_blok_rgt">
+            <h2 class="amu_enter">Select Quantity</h2>
+        </div>
+        <div class="incre_decre">
+            <div class="plues">
+                <p class="plusA" (click)="AddToCart(product)">+</p>
+            </div>
+            <input class="plues" readonly type="text" [value]="product.Amount" />
+            <div class="plues">
+                <p class="plusA" (click)="DownloadFromShoppingCart(product)">-</p>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+
+    <div class="loading_post" style="display: none;">
+        <span class="loading_post_a">
+            <div class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+            </div>
+    </span>
+    </div>
+</div>
+

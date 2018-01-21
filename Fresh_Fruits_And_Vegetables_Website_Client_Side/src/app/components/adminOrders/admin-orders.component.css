@@ -1,0 +1,19 @@
+.form-group{
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px;
+    }
+    h1{
+        color: white;
+        text-align: center;
+    }
+    h3{
+        color: white;
+        padding-bottom: 10px;
+    }
+    .error{
+        color:red;
+    }
+    
+    

@@ -1,0 +1,32 @@
+.form-class{
+    height: 80px;
+    width: 150px;
+}
+.map-img{
+    height: 320px;
+    width: 410px;
+    position: relative; 
+    top: 15%;
+    left: 27%;  
+}
+h1{
+    font-size: 100px;
+}
+p{
+font-style: bold;
+display: inline;
+text-align: center;
+padding-bottom: 15px;
+}
+.container{
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
+agm-map {
+    height: 300px;
+  }
+  .test,h1{
+      color: white;
+  }
+  span{
+      padding: 8px;
+  }

@@ -1,0 +1,222 @@
+
+.img-class{
+    width: 70px;
+    height: 70px;
+}
+.container{ 
+    width: 235px;
+    display: inline-block;
+    padding: 2px 0 0 0;
+    margin: 0 0 28px 29px;
+    border: solid 1px #d1cbbd;
+    border-radius: 6px 6px 0 0;
+    background: #ffffff;
+    border-bottom: double 3px #d1cbbd;
+    text-align: center; 
+}
+
+.container:hover
+{
+    -moz-box-shadow: 0 0 10px #ccc;
+    -webkit-box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #ccc;
+	height: auto;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.productIMG{
+    max-width: 162px;
+    max-height: 128px;
+    vertical-align: middle;
+}
+
+img:hover { 
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+  }
+  
+
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+.img-div{
+    float: right;
+    width: 100%;
+    height: 174px;
+    line-height: 174px;
+    text-align: center;
+    font-size: 1px;
+    letter-spacing: -1px;
+}
+.img-div-2{
+    overflow: hidden
+}
+.div-price{
+    width: 100%;
+    padding: 8px 0 12px 0;
+    margin: 0;
+    border-bottom: solid 1px #d1cbbd;
+    display: block;
+}
+.ProductName{
+    display: inline-block;
+    float: right;
+    padding: 0 14px 0 0;
+    margin: 0;
+    font-family: maorregular;
+    font-size: 19px;
+    line-height: 16px;
+    color: #413c35;
+    font-weight: 400;
+    min-height: 32px;
+    width: 162px;
+    text-align: right;
+    -webkit-margin-before: 1.33em;
+    -webkit-margin-after: 1.33em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.p-price{
+    float: left;
+    padding: 3px 0 0 17px;
+    margin: 0;
+    font-family: maorregular;
+    font-size: 16px;
+    line-height: 16px;
+    color: #413c35;
+    font-weight: 400;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.num{
+    color: #169a52;
+    font-size: 20px;
+    line-height: 20px;
+}
+.shsh{
+    font-size: 14px;
+    color: #000;
+}
+.operation{
+    font-family: maorregular;
+    font-size: 16px;
+    line-height: 16px;
+    color: #ffffff;
+    font-weight: 400;
+    transform: rotate(315deg);
+    padding: 0;
+    margin: 17px 12px 0 0;
+}
+.clear {
+    clear: both;
+    font-size: 1px;
+    line-height: 1px;
+    display: block;
+    height: 0;
+}
+
+.ammount_blok {
+    width: 100%;
+    padding: 0;
+    margin: 0 0 1px 0;
+    background: #f8f7f4;
+    border-bottom: solid 1px #d1cbbd;
+}
+.ammount_blok_rgt {
+    width: 129px;
+    display: inline-block;
+    float: right;
+    padding: 11px 13px 0 0;
+    border-left: solid 1px #eeece5;
+}
+.amu_enter{
+    display: block;
+    padding: 0 1px 9px 0;
+    margin: 0;
+    font-family: maorregular;
+    font-size: 16px;
+    line-height: 13px;
+    color: #413c35;
+    font-weight: 400;
+    text-align: right;
+}
+.incre_decre {
+    border: solid 1px #d1cbbd;
+    width: 89px;
+    margin: 0 0 13px 0;
+    padding: 0;
+    display: block;
+}
+.plues {
+    width: 29px;
+    display: inline-block;
+    float: right;
+    text-align: center;
+    padding: 7px 0 8px 0;
+    margin: 0;
+    border-left: solid 1px #d1cbbd;
+    font-family: maorregular;
+    font-size: 20px;
+    line-height: 12px;
+    color: #413c35;
+}
+.plusA{
+    color: #000;
+    text-decoration: none;
+    display: block;
+}
+
+.double-bounce1, .double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #f79432;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-animation: bounce 2.0s infinite ease-in-out;
+    animation: bounce 2.0s infinite ease-in-out;
+}
+
+.zoomeffect img {
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+
+.loading_post {
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
+.loading_post_a {
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 14px;
+    padding: 18px 0;
+    color: #55626f;
+    font-family: AllerItalic;
+}
+.spinner {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin: 0 auto;
+}
+
+

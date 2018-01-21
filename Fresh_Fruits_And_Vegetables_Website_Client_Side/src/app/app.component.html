@@ -1,0 +1,67 @@
+<nav class="navbar navbar-default  nav-first">
+      <div class="logo-class">
+            <div class="container-fluid">
+
+                  <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span> 
+                </button>
+
+                        <a href="https://www.facebook.com/profile.php?id=100022564597513&pnref=lhc.unseen"><i class="fa fa-facebook facebookIcon"></i></a>
+                        <a href="#" class="none call" >For reservations call 052-789-0600 <i class="glyphicon glyphicon-earphone" style="font-size:15px; color: white;"></i></a>
+                  </div>
+                  <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                              <li><a class="li-nav" *ngIf="!auth.isAuthenticated()" (click)="auth.login()">Log In</a></li>
+                              <li><a class="li-nav" *ngIf="auth.isAuthenticated()" (click)="auth.logout()">Log Out</a></li>
+                              <li><a class="li-nav" [routerLink]="['/Home']">Home</a></li>
+                              <li><a class="li-nav" *ngIf="auth.isAuthenticated()&&auth.isRole" [routerLink]="['/HomeAdmin']">HomeAdmin</a></li>
+                              <li><a class="li-nav" *ngIf="auth.isAuthenticated()&&auth.isRole" [routerLink]="['/Storage']">Storage</a></li>
+                              <li><a class="li-nav" data-toggle="modal" data-target="#myModal" *ngIf="auth.isAuthenticated()&&!auth.isRole">My shopping bag</a></li>
+                              <li><a class="li-nav" *ngIf="auth.isAuthenticated()&&auth.isRole" [routerLink]="['/AdminOrders']">Admin Orders Storage</a></li>
+                              <li><a class="li-nav" *ngIf="auth.isAuthenticated()&&!auth.isRole" [routerLink]="['/RecentOrders']">Recent-Orders</a></li>
+                              <li><a class="li-nav" [routerLink]="['/About']">About</a></li>
+                              <li><a class="li-nav" [routerLink]="['/Contact']"> Write to us</a></li>
+                        </ul>
+                  </div>
+            </div>
+      </div>
+</nav>
+
+
+
+
+<div style="padding-top:50px;" class="container">
+      <div class="row">
+            <div class="col-md-9">
+                  <router-outlet></router-outlet>
+            </div>
+            <div class="col-md-3 navbarright">
+                  <div class="well">
+                        <profile></profile>
+                  </div>
+
+                  <div style="height: 350px;" class="well">
+                        <buying></buying>
+                  </div>
+
+                  <div class="well">
+                        <p>
+                              * The basket is for revaluation only and is not final. The final and accurate amount of the charge will be made after weighing
+                              the products on the day of delivery. The revaluation does not include discounts or coupons.
+                              These will be calculated before the actual charge is made.
+                        </p>
+                  </div>
+            </div>
+      </div>
+</div>
+
+
+<footer>
+      <ul class="footer">
+            <li><a class="footer-link" [routerLink]="['/About']">About</a></li>
+            <li><a class="footer-link" [routerLink]="['/Contact']"> Write to us</a></li>
+      </ul>
+</footer>

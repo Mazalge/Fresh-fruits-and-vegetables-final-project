@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="col-sm-9">
+        <h1>Continue registration</h1>
+        <form #trvForm="ngForm" (ngSubmit)="CreateUser(trvForm)">
+            <h3>Hello! tell us about yourself please: </h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="idFirstName">First Name :</label>
+                        <input id="idFirstName" name="FirstName" type="text" class="form-control" required [(ngModel)]="firstName" #trvFirstName="ngModel">
+                        <div *ngIf="trvFirstName.errors && (trvFirstName.dirty || trvFirstName.touched)" class="alert alert-danger">
+                            <div [hidden]="!trvFirstName.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="idCity">City</label>
+                        <input id="idCity" name="city" type="text" class="form-control" required [(ngModel)]="city" #trvCity="ngModel">
+                        <div *ngIf="trvCity.errors && (trvCity.dirty || trvCity.touched)" class="alert alert-danger">
+                            <div [hidden]="!trvCity.errors.required">City is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="idAdress">Adress</label>
+                        <input id="idAdress" name="adress" type="text" class="form-control" required [(ngModel)]="adress" #trvAdress="ngModel">
+                        <div *ngIf="trvAdress.errors && (trvAdress.dirty || trvAdress.touched)" class="alert alert-danger">
+                            <div [hidden]="!trvAdress.errors.required">Adress is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="idBusiness">Business</label>
+                        <input id="idBusiness" name="business" type="text" class="form-control" required [(ngModel)]="business" #trvBusiness="ngModel">
+                        <div *ngIf="trvBusiness.errors && (trvBusiness.dirty || trvBusiness.touched)" class="alert alert-danger">
+                            <div [hidden]="!trvBusiness.errors.required">Business price is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="idLastName">Last Name</label>
+                        <input id="idLastName" name="adress" type="text" class="form-control" required [(ngModel)]="lastName" #trvLastName="ngModel">
+                        <div *ngIf="trvLastName.errors && (trvLastName.dirty || trvLastName.touched)" class="alert alert-danger">
+                            <div [hidden]="!trvLastName.errors.required">Last Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="idEmail">Email</label>
+                        <input id="idEmail" name="email" type="email" pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)" class="form-control" required [(ngModel)]="email" #trvEmail="ngModel">
+                        <div *ngIf="trvEmail.errors && (trvEmail.dirty || trvEmail.touched)" class="alert alert-danger">
+                            <div [hidden]="!trvEmail.errors.required">Email is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="idPhoneNum">Phone number</label>
+                        <input id="idPhoneNum" name="phoneNum" type="number" class="form-control" required [(ngModel)]="phoneNum" #trvPhoneNum="ngModel">
+                        <div *ngIf="trvPhoneNum.errors && (trvPhoneNum.dirty || trvPhoneNum.touched)" class="alert alert-danger">
+                            <div [hidden]="!trvPhoneNum.errors.required">Phone number is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-success" [disabled]="!trvForm.valid">Send details</button>
+        </form>
+
+        <div class="col-sm-3 nav-div-right"></div>

@@ -1,0 +1,38 @@
+h1{ 
+    color: white;
+    font-size: 50px;
+    padding-bottom: 10PX;
+}
+button{
+    padding-bottom: 17PX;
+}
+th{
+    text-align: center;
+}
+td{
+    text-align: center;
+}
+
+thead, tbody, tr, td, th { display: block; }
+
+tr:after {
+content: ' ';
+display: block;
+visibility: hidden;
+clear: both;
+}
+table{
+    background-color: #ebeff2;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+tbody {
+height: 600px;
+overflow-y: auto;
+}
+
+tbody td, thead th {
+width: 29.2%;
+float: left;
+}

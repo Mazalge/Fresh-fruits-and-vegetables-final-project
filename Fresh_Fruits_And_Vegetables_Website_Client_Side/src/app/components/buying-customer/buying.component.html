@@ -1,0 +1,214 @@
+<div style="cursor:pointer" class="table-responsive order-div">
+      <table class="table" border="0|0">
+            <tbody>
+                  <tr *ngFor="let product of DataService.arProducts">
+                        <td>{{product.Amount}}</td>
+                        <td><img class="img-responsive sm_fruit1" width="35" height="32" [src]="product.ImgPath" alt="product"></td>
+                        <td>{{product.ProductName}}</td>
+                        <!-- <td>{{product.CustomerPrice}}₪</td> -->
+                        <td><span class="glyphicon glyphicon-remove" (click)="DataService.DeletProduct(product)"></span></td>
+                  </tr>
+            </tbody>
+      </table>
+</div>
+<div style="cursor:pointer" class="total-price-div">
+      <div class="total-price1">{{DataService.totalPrice.toFixed(2)}}₪</div>
+      <div class="total-price2">Total price</div>
+      <div class="clear"></div>
+</div>
+<div style="cursor:pointer" class="do-order-div">
+      <div class="bg2">
+            <div class="do-order2">Quantity : {{DataService.totalAmount}}</div>
+            <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success do-order1">Order</button>
+      </div>
+
+</div>
+
+<!-- ------------------------------------------- -->
+
+
+<div style="cursor:pointer" class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+            <div class="modal-content">
+                  <div class="modal-header modal-header-div">
+                        <button type="button" class="close" (click)="closeShoppingCart()" data-dismiss="modal"><i class="material-icons">cancel</i></button>
+                        <div style="display: inline-block;"><i class="glyphicon glyphicon-shopping-cart"></i></div>
+                        <h4 class="modal-title modal-title-div"> My Shopping Bag</h4>
+                  </div>
+                  <div class="modal-body">
+                        <div *ngIf="DataService.OrderList">
+                              <p>*Check the list of items and click the button below to continue placing your order</p>
+                              <table class="table table-responsive table-hover">
+                                    <thead>
+                                          <tr>
+                                                <th>Product</th>
+                                                <th>Price</th>
+                                                <th>Amount</th>
+                                                <th>Delet</th>
+                                          </tr>
+                                    </thead>
+                                    <tbody>
+                                          <tr *ngFor="let product of DataService.arProducts">
+                                                <td>
+                                                      <img style="display: inline-block;" class="sm_fruit1" width="35" height="32" [src]="product.ImgPath" alt="product">
+                                                      <div style="display: inline-block;">{{product.ProductName}}</div>
+                                                </td>
+                                                <td>{{product.CustomerPrice}}</td>
+                                                <td>{{product.Amount}}</td>
+                                                <td><span class="glyphicon glyphicon-remove" (click)="DataService.DeletProduct(product)"></span></td>
+                                          </tr>
+                                          <tr>
+                                                <th colspan="2">product Amount : {{DataService.totalAmount}}</th>
+                                                <th colspan="2">{{DataService.totalPrice.toFixed(2)}}₪</th>
+                                          </tr>
+                                    </tbody>
+                              </table>
+                              <div style="color:red;">{{errorShoppingCart}}</div>
+                              <div style="color:red;">{{errorUserNotConected}}</div>
+                              
+                              <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" (click)="SitePoliciesFunction()" [checked]="SitePoliciesCalled" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="SitePoliciesCalled">
+                                      Than that I have read and agree to the Site Rules
+                                    </label>
+                                    <div style="color:red;">{{errorSitePoliciesCalled}}</div>
+                                    <div>
+                                          <p>
+                                                <a class="Policy-tag" data-toggle="collapse" href="#collapsePolicy" aria-expanded="false" aria-controls="collapsePolicy">
+                                          Site's Policy</a>
+                                          </p>
+                                          <div class="collapse" id="collapsePolicy">
+                                                <div class="card card-body collapsePolicy">
+                                                      <p>* If the product you have selected is not in the stock, the customer service
+                                                            center will contact you with the phone number you 
+                                                             have signed in, for replacement or cancellation terms.</p>
+                                                      <p> ** If the customers service center fails to locate you, the product will
+                                                            be deleted from the order and you will not be charged with it.</p>
+                                                      <p> *** Our website offers free shipping for all our customers.</p>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+
+                        <div *ngIf="DataService.DetailsForm">
+                              <form #trvForm="ngForm">
+                                    <div class="row">
+                                          <div class="col-md-6">
+                                                <div class="form-group">
+                                                      <label for="Business" class="control-label">Business :</label>
+                                                      <div class="input-group date">
+                                                            <input id="Business" readonly type="text" readonly class="form-control" name="business" [(ngModel)]="DataService.UserConnected.Business" #trvBusiness="ngModel">
+                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                                      </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                      <label for="City" class="control-label">City :</label>
+                                                      <div class="input-group date">
+                                                            <input id="City" type="text" required class="form-control" name="city" [(ngModel)]="DataService.UserConnected.City" #trvCity="ngModel">
+                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                                                      </div>
+                                                      <div *ngIf="trvCity.errors && (trvCity.dirty || trvCity.touched)" class="alert alert-danger">
+                                                            <div [hidden]="!trvCity.errors.required">
+                                                                  City is required
+                                                            </div>
+                                                      </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                      <label for="date" class="control-label">Delivery receipt date :</label>
+                                                      <div class="input-group date">
+                                                            <input id="date" type="date" class="form-control" required name="date" [(ngModel)]="date" #trvDate="ngModel">
+                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                      </div>
+                                                      <div *ngIf="trvDate.errors && (trvDate.dirty || trvDate.touched)" class="alert alert-danger">
+                                                            <div [hidden]="!trvDate.errors.required">
+                                                                  Date is required
+                                                            </div>
+                                                      </div>
+                                                      <div style="color:red;">{{ errorDate }}</div>
+                                                </div>
+
+                                          </div>
+                                          <div class="col-md-6">
+                                                <div class="form-group">
+                                                      <label for="Email" class="control-label">Email : </label>
+                                                      <div class="input-group date">
+                                                            <input id="Email" type="text" readonly class="form-control" name="email" [(ngModel)]="DataService.UserConnected.Email" #trvEmail="ngModel">
+                                                            <span class="input-group-addon">@</span>
+                                                      </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                      <label for="Phone" class="control-label">Phone :</label>
+                                                      <div class="input-group date">
+                                                            <input id="Phone" type="text" required max="10" class="form-control" name="phone" [(ngModel)]="DataService.UserConnected.Phone" #trvPhone="ngModel">
+                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                                      </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                      <label for="Address" class="control-label">Address :</label>
+                                                      <div class="input-group date">
+                                                            <input id="Address" type="text" required class="form-control" name="address" [(ngModel)]="address" #trvAddress="ngModel">
+                                                            <span class="input-group-addon">
+                                                                        <img width="16" height="20" src="../assets/address_Icon.png" alt="address">
+                                                                  </span>
+                                                      </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                      <label for="time" class="control-label">Delivery time : </label>
+                                                      <div class="input-group date">
+                                                            <input id="time" type="time" required class="form-control" name="time" [(ngModel)]="time" #trvTime="ngModel">
+                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                                      </div>
+                                                      <div *ngIf="trvTime.errors && (trvTime.dirty || trvTime.touched)" class="alert alert-danger">
+                                                            <div [hidden]="!trvTime.errors.required">
+                                                                  Time is required
+                                                            </div>
+                                                      </div>
+                                                      <div style="color:red;">{{ errorTime }}</div>
+                                                </div>
+
+                                          </div>
+                                    </div>
+                                    <div class="form-group">
+                                          <label for="Message">Message to delivery person :</label>
+                                          <textarea class="form-control" rows="5" id="Message" name="Message" [(ngModel)]="deliveryMessage"></textarea>
+                                    </div>
+                                    <button  (click)="DetailsFormFunction()" class="btn btn-success">Order</button>
+                              </form>
+                        </div>
+
+                        <div *ngIf="DataService.FinishOrder">
+                              <h3>The order was successful !</h3>
+                              <div>Delivery of products will arrive on {{date}}, at {{time}}.</div>
+                              <p>
+                                 <a data-toggle="collapse" href="#collapseDetails" aria-expanded="false" aria-controls="collapseDetails">
+                                     Order details recorded in the system :</a>
+                              </p>
+                              <div class="collapse" id="collapseDetails">
+                                    <div class="card card-body">
+                                          <div>Quantity of products : {{DataService.totalAmount}}</div>
+                                          <div>The price of the order : {{DataService.totalPrice.toFixed(2)}}₪</div>
+                                          <div>Order Number : {{orderNumber}}</div>
+                                    </div>
+                              </div>
+                        </div>
+
+                  </div>
+                  <div class="modal-footer">
+                        <div class="modal-title-div">
+                              <i [style.color]="DataService.OrderList? '#5cb85c' : '#989899' " class="fa fa-circle"></i>
+                              <i [style.color]="DataService.DetailsForm? '#5cb85c' : '#989899' " class="fa fa-circle"></i>
+                              <i [style.color]="DataService.FinishOrder? '#5cb85c' : '#989899' " class="fa fa-circle"></i>
+                        </div>
+                        <button *ngIf="DataService.OrderList" type="button" class="btn btn-success" (click)="OrderListFunction()">Next step</button>
+                        <button *ngIf="DataService.FinishOrder" type="button" class="btn btn-success" (click)="FinishOrderFunction()" data-dismiss="modal">Finish</button>
+                  </div>
+
+            </div>
+      </div>
+</div>

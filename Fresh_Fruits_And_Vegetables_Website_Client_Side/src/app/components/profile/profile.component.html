@@ -1,0 +1,22 @@
+
+<div class="main_cont_rgt_welcome">
+    <div *ngIf="!auth.isAuthenticated()">
+        <div><i class="fa fa-user icon-div" aria-hidden="true"></i></div>
+        <h3>{{text}}</h3>
+    </div>
+
+    <div class="profile-div" *ngIf="auth.isAuthenticated()">
+        <img src="{{profile?.picture}}" class="avatar img-responsive img-circle">
+        <div>
+            <h3>Hello : {{ profile?.nickname }}</h3>
+        </div>
+    </div>
+</div>
+
+
+<div class="bottomcart">
+    <div>
+        <button class="btn btn-success" style="width: 100%;" *ngIf="!auth.isAuthenticated()" (click)="auth.login()">Log In</button>
+        <button class="btn btn-success" style="width: 100%;" *ngIf="auth.isAuthenticated()" (click)="auth.logout()">Log Out</button>        
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.panel-body{
+    position: absolute;
+    top:15%;
+    color: black;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+div {
+    display: block;
+}
+h3{
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    text-align: center;
+    padding-left: 18px;
+    padding-bottom: 10px;
+}
+.profile-div{
+    padding-left: 65px;
+}
+.icon-div{
+    font-size:85px;
+    padding-left: 75px;
+}
+

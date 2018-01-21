@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="col-sm-8">
+        <h1 class="text-center">Contact</h1>
+        <p class="text-center"><em></em></p>
+        <div class="row test">
+            <div class=" row details">
+                <p class="col-sm-4"><span class="glyphicon glyphicon-map-marker"></span>Petah Tiqwa, Israel</p>
+                <p class="col-sm-4"><span class="glyphicon glyphicon-phone"></span>03-9085152</p>
+                <p class="col-sm-4"><span class="glyphicon glyphicon-envelope"></span>freshfruits8989@gmail.com</p>
+            </div>
+            <form #trvForm="ngForm" (ngSubmit)="CreateUser(trvForm)">
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+                        <label for="name" style="color:red;">*</label>
+                        <input class="form-control" id="name" name="name" [(ngModel)]="name" placeholder="Name" type="text" #trvName="ngModel" required>
+                        <div *ngIf="trvName.errors && (trvName.dirty || trvName.touched)" class="alert alert-danger">
+                            <div [hidden]="!trvName.errors.required">Name is required</div>
+                        </div>
+                    </div>
+
+                    <div style="padding-top: 24px;" class="col-sm-4 form-group">
+                        <input id="idPhoneNum" name="phoneNum" type="number" placeholder="Phone" class="form-control" required [(ngModel)]="phoneNum">
+                    </div>
+
+                    <div class="col-sm-4 form-group">
+                        <label for="email" style="color:red;">*</label>
+                        <input class="form-control" id="email" name="email" [(ngModel)]="email" pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)"
+                            #trvEmail="ngModel" placeholder="Email" type="email" required>
+                        <div *ngIf="trvEmail.errors && (trvEmail.dirty || trvEmail.touched)" class="alert alert-danger">
+                            <div [hidden]="!trvEmail.errors.required">Email is required</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 form-group">
+                        <label for="message" style="color:red;">*</label>
+                        <textarea class="form-control" id="message" name="message" [(ngModel)]="message" #trvMessage="ngModel" placeholder="message"
+                            required rows="5"></textarea>
+                        <div *ngIf="trvMessage.errors && (trvMessage.dirty || trvMessage.touched)" class="alert alert-danger">
+                            <div [hidden]="!trvMessage.errors.required">Message is required</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button style="margin-top: 10px;" [disabled]="!trvForm.valid" (click)="clickHandlerGet()" class="btn btn-success pull-right"
+                    type="submit">Send</button>
+            </form>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3 nav-div-right"></div>
+    </div>

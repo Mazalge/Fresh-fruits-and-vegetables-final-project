@@ -1,0 +1,35 @@
+<div class="container">
+    <div style="padding-left: 15px;" class="col-sm-9">
+        <div>
+            <div id="pie_chart" [chartData]="pie_ChartData" [chartOptions]="pie_ChartOptions" chartType="PieChart" GoogleChart></div>
+        </div>
+
+        <div>
+            <h1>All Users list</h1>
+            <table class="table table-fixed">
+                <thead>
+                    <tr>
+                        <th>First Name </th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Business</th>
+                        <th>Phone</th>
+                        <th>Registration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of DataService.arUsers">
+
+                        <td> {{ user.FirstName }} </td>
+                        <td> {{ user.LastName }} </td>
+                        <td> {{ user.Email}}</td>
+                        <td> {{ user.Business}}</td>
+                        <td> {{ user.Phone}}</td>
+                        <td> {{ user.Registration}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-sm-3 nav-div-right"></div>
+</div>

@@ -1,0 +1,15 @@
+.container{
+    text-align: justify;
+    line-height: 1.8;
+    word-spacing: 1.5px;
+    font-size: 20px;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
+h1{
+    position: relative;
+    font-size: 40px;
+    text-align: center;
+}
+.lead{
+    text-align: center;
+}

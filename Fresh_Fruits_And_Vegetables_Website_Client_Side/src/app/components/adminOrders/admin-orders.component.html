@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="col-sm-9">
+        <div>
+            <h1>Admin orders</h1>
+            <form #trvForm="ngForm" (ngSubmit)="CreateProduct(trvForm)">
+                <h3>Add new product :</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="idNewProName">Product name</label>
+                            <input id="idNewProName" name="newProName" type="text" class="form-control" required [(ngModel)]="newProName" #trvNewProName="ngModel">
+                            <div *ngIf="trvNewProName.errors && (trvNewProName.dirty || trvNewProName.touched)" class="alert alert-danger">
+                                <div [hidden]="!trvNewProName.errors.required">Name is required</div>
+                            </div>
+                            <div class="error">{{ proNameError }}</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="idMarketPrice">Market price</label>
+                            <input id="idMarketPrice" name="marketPrice" type="number" class="form-control" required min="0" [(ngModel)]="marketPrice"
+                                #trvmarketPrice="ngModel">
+                            <div *ngIf="trvmarketPrice.errors && (trvmarketPrice.dirty || trvmarketPrice.touched)" class="alert alert-danger">
+                                <div [hidden]="!trvmarketPrice.errors.required">Market price is required</div>
+                            </div>
+                            <div class="error"> {{ marketPriceError }}</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="category" [(ngModel)]="category" id="Fruits" value="Fruits" checked>
+                                            Fruits
+                                          </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">                      
+                                            <input type="radio" class="form-check-input" name="category" [(ngModel)]="category" id="Vegetables" value="Vegetables">
+                                            Vegetables
+                                          </label>
+                            </div>
+                            <div class="error">{{ categoryError }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="idCustomerPrice">Customer price</label>
+                            <input id="idCustomerPrice" name="customerPrice" type="number" class="form-control" required min="0" [(ngModel)]="customerPrice"
+                                #trvcustomerPrice="ngModel">
+                            <div *ngIf="trvcustomerPrice.errors && (trvcustomerPrice.dirty || trvcustomerPrice.touched)" class="alert alert-danger">
+                                <div [hidden]="!trvcustomerPrice.errors.required">Customer price is required</div>
+                            </div>
+                            <div class="error">{{ customerPriceError }}</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="idNewProAmount">Amount</label>
+                            <input id="idNewProAmount" name="newProAmount" type="number" class="form-control" required min="0" [(ngModel)]="newProAmount"
+                                #trvNewProAmount="ngModel">
+                            <div *ngIf="trvNewProAmount.errors && (trvNewProAmount.dirty || trvNewProAmount.touched)" class="alert alert-danger">
+                                <div [hidden]="!trvNewProAmount.errors.required">Amount is required</div>
+                            </div>
+                            <div class="error"> {{ AmountError }}</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="idPath">Image</label>
+                            <input #myInput id="idPath" type="File" value="Upload" class="form-control" (change)="changeFile($event)" accept="image/x-png,image/gif,image/jpeg">
+                            <span class="glyphicon glyphicon-remove" (click)="resetFile()"></span>
+                        </div>
+                        <div class="error"> {{ fileError }} </div>
+                    </div>
+
+                </div>
+                <button class="btn btn-success" [disabled]="!trvForm.valid">Add product</button>
+                <div class="error"> {{ productExsist }} </div>
+                <div class="error"> {{ editGeneralError }} </div>
+                <div class="error">{{fileNameExsist}}</div>
+                <div class="newProDetails" *ngIf="showDetails">
+                    <div style="color: green"> {{ serverMessage }} </div>
+                    Details:
+                    <ul>
+                        <li> Product name - {{ product.ProductName }} </li>
+                        <li> Market price - ₪ {{ product.MarketPrice }} </li>
+                        <li> Customer price - ₪ {{ product.CustomerPrice }} </li>
+                        <li> Category - {{ product.Category }} </li>
+                        <li> Amount - {{ storage.Amount }} </li>
+                        <li> Total - ₪ {{ totalBuying }} </li>
+                    </ul>
+                    <button class="btn btn-success" (click)="backToStorage()">Ok</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-3 nav-div-right"></div>
